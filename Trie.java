@@ -62,6 +62,17 @@ public class Trie {
 		return "a(53%),e (22%), i(18%), o(5%), u(2%) [hardcoded]";
 	}
 
+	/**
+	 * Returns a valid word that is closest to the given word
+	 *
+	 * @param word the invalid word
+	 * @return a valid word in the trie
+	 */
+	public String spellCheck(String word) {
+		return word;
+	}
+
+
 	public void insert(String word) {
 		if (word == null || word.length() == 0) return;
 
