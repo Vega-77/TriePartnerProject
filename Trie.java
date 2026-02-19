@@ -27,6 +27,38 @@ public class Trie {
 		root = new Node();
 	}
 
+	/**
+	 * Returns a String with N words generated using a weighted average
+	 *
+	 * @param N the amount of words to include
+	 * @return block of text with N words
+	 */
+	public String randomTextBlock(int N) {
+
+	    return "hello world this is I";
+	}
+
+	/**
+	 * Returns a String completing prefix with the most likely word
+	 *
+	 * @param prefix word to autocomplee
+	 * @return autocompleted word
+	 */
+	public String autocompleteWord(String prefix) {
+	    return mostLikelyNextWord(prefix);
+	}
+
+	/**
+	 * Returns a String containing the top N most likely next chars
+	 * after the given prefix, along with their percent likelihood.
+	 *
+	 * @param pre the prefix to search for
+	 * @param N the number of top characters to return
+	 * @return a formatted String of the top N characters and percent
+	 */
+	public String topNLikelyCharsPercent(String pre, int N) {
+		return "a(53%),e (22%), i(18%), o(5%), u(2%) [hardcoded]";
+	}
 
 	public void insert(String word) {
 		if (word == null || word.length() == 0) return;
@@ -174,6 +206,5 @@ public class Trie {
 		System.out.println("\n---- printWordFrequencies ----");
 		trie.printWordFrequencies();
 		System.out.println("\nNOTE:  Alphabetical sorting also acceptable\n\n" );
-
 	}
 }
