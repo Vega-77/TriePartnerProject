@@ -1,6 +1,8 @@
 import java.util.*;
 
 public class Trie {
+
+	private Map<String, Long> words;
 	public class Node {
 		Map<Character, Node> children;
 
@@ -165,9 +167,22 @@ public class Trie {
         return bestWord;
     }
 
-	public void printWordFrequencies() {
-
+	public void printWordFrequencies(){
+		words = new TreeMap<String, Long>();
+		printingHelper(root, new StringBuilder());
+		for(Map.Entry<String, Long> entry : words.entrySet())
+			System.out.println(entry.getKey()+": "+entry.getValue());
 	}
+
+	private void printingHelper(Node node, StringBuilder currentWord){
+        if(node.isEndOfWord())
+            words.put(currentWord.toString(), node.endCount);
+        for(Map.Entry<Character, Node> entry : node.children.entrySet()){
+            currentWord.append(entry.getKey());
+            printingHelper(entry.getValue(), currentWord);
+            currentWord.deleteCharAt(currentWord.length() - 1);
+        }
+    }
 
 	public static void main(String[] args) {
 		Trie trie = new Trie();
